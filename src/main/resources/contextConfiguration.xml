@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--in this file, we write our spring configuration in xml file-->
+<!-- we can define our beans here = Beans Elements -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+    <bean id="name" class="java.lang.String">
+        <constructor-arg value="Radha"/>
+    </bean>
+
+    <bean id="age" class="java.lang.Integer">
+        <constructor-arg value="25"/>
+    </bean>
+
+<!--    <context:component-scan-->
+<!--            base-package="com.springFramework.learn_spring_framework.game"/> &lt;!&ndash; this will scan the package and register all the beans in the package &ndash;&gt;-->
+
+<!--    Alternative for component-scan-->
+
+    <bean id="game"
+            class="com.springFramework.learn_spring_framework.game.MarioGame"> </bean>
+
+    <bean id="gameRunner"
+            class="com.springFramework.learn_spring_framework.game.GameRunner">
+        <constructor-arg ref="game"/>
+    </bean>
+</beans>
